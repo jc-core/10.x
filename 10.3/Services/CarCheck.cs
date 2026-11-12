@@ -10,6 +10,8 @@ namespace Assignment10_3.Services {
                 return "Another car already has that VIN.";
             if (car.Make.Trim() == "" || car.Model.Trim() == "")
                 return "Make and model can't be blank.";
+            if (car.Year is null || car.Mileage is null || car.Price is null)
+                return "Year, mileage and price can't be blank.";
             if (car.Year < 1900 || car.Year > DateTime.Now.Year + 1)
                 return $"Year has to be from 1900 to {DateTime.Now.Year + 1}.";
             if (car.Mileage < 0)

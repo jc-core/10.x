@@ -11,7 +11,9 @@ namespace Assignment10_3.Data {
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
 
-            modelBuilder.Entity<Car>().Property(car => car.Price).HasPrecision(10, 2);
+            modelBuilder.Entity<Car>().Property(car => car.Price).HasPrecision(10, 2).IsRequired();
+            modelBuilder.Entity<Car>().Property(car => car.Year).IsRequired();
+            modelBuilder.Entity<Car>().Property(car => car.Mileage).IsRequired();
             modelBuilder.Entity<Car>().HasData(
                 new Car { CarId = 1, VIN = "1HGCV1F34LA012345", Make = "Honda", Model = "Accord", Year = 2020, Mileage = 41200, Price = 21500m },
                 new Car { CarId = 2, VIN = "4T1B11HK5KU678901", Make = "Toyota", Model = "Camry", Year = 2019, Mileage = 55800, Price = 19250m },
