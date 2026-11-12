@@ -2,6 +2,7 @@ using Assignment10_3.Models;
 using Assignment10_3.Services;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 namespace Assignment10_3 {
     public partial class MainWindow : Window {
 
@@ -50,6 +51,11 @@ namespace Assignment10_3 {
             btnSave.Content = "Update";
             btnCancel.Visibility = Visibility.Visible;
 
+        }
+
+        private void CarGrid_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e) {
+            if (e.NewFocus is FrameworkElement element && element.DataContext is Car car)
+                CarGrid.SelectedItem = car;
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e) {
